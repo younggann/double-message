@@ -1,0 +1,28 @@
+<div class = "row">
+<div class = "col-md-2"></div>
+	<div class="panel panel-default col-md-8" id = "panel">
+	  <div class="panel-heading" id="panel-heading"><center><h1>Contacts</h1></center></div>
+	  <div class="panel-body">
+		  <ul>
+		  {{#each contacts}}
+		  <div class = "row">
+		  	<li id="contact-list">
+		  	<div class = "col-md-4">
+			<h3 id="card-name">{{name}}</h3>
+		  	<br>Phone Number:     {{phone}}
+		  	</div>
+
+		  	<div class = "col-md-8 button-holder">
+		  		<a class="btn btn-default" href = "/contacts/{{_id}}">Edit Contact</a>
+		  		<a class="btn btn-default" href = "/newMessage/{{_id}}">Send New Message</a>
+		  		<a class="btn btn-default" href = "/messages/{{_id}}">View Messages</a>
+		  	</div>
+		  	</li>
+		  	</div>
+		  {{/each}}
+		  </ul>
+		  <br>
+		  <a class="btn btn-primary" id = "contactBtn" href="/contacts/new">Add New Contact</a>
+		</div>
+	<div class = "col-md-2"></div>
+</div>

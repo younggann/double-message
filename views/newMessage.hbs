@@ -1,0 +1,40 @@
+<div class ="row">
+<div class = "col-md-2"></div>
+	<div class="panel panel-default col-md-8" id="panel">
+		<div class="panel-heading" id="panel-heading"><center><h1>Send a New Message</h1></center></div>
+		<div class="panel-body">
+			<form method="post">
+				<fieldset class="form-group">
+					<textarea type="text" class="form-control" name="message" rows="4" cols="50" required autofocus></textarea>
+				</fieldset>
+				<button type="submit" class="btn btn-secondary" id = "sendBtn">Send {{contact.name}} A Message ({{contact.phone}})</button>
+				
+				<button type="submit" class="btn btn-danger" id="later-btn" name = "later" value = "true" clicked = "false">Send Later</button>
+				<div>
+					<div class="well date-input">
+						<input data-format="dd/MM/yyyy hh:mm:ss" type="text" name="date" placeholder = "YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS" style="width: 50%"/>
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<div class = "col-md-2"></div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+	$('.date-input').hide();
+	console.log($('.date-input'))
+
+	$('#later-btn').click(function(evt){
+		$('.date-input').show();
+		if ($('#later-btn').attr("clicked") === "false"){
+			$('#later-btn').attr("clicked","true");
+			evt.preventDefault();	
+		}
+	});
+});
+
+	
+</script>

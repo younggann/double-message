@@ -1,0 +1,90 @@
+<div class ="row">
+	<div class = "col-md-2"></div>
+	<div class="panel panel-default col-md-8" id="panel">
+		<div class="panel-heading" id="panel-heading"><center><h1>Your Conversation with {{name}}</h1></center></div>
+		<div class="panel-body" id = "panel-body">
+			<div class = "row">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id = "scheduled-btn">See Scheduled Messages
+						<span class="caret"></span></button>
+						<ul class="dropdown-menu" id="scheduled-ul">
+							{{#each scheduled}}
+							<li>
+								<div class="msg-bubble scheduled">
+									<h5>
+										Sent to {{sentTo}} via text: {{createdAt}}
+									</h5>
+									<p>
+										"{{content}}"
+									</p>
+								</div>
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+					<ul>
+						{{#each messages}}
+						<li >
+							{{#if sentByYou}}
+							<div class="msg-bubble right">
+								<h5>
+									Sent to {{sentTo}} via text: {{createdAt}}
+								</h5>
+								<p>
+									"{{content}}"
+								</p>
+							</div>
+							{{else}}
+							<div class="msg-bubble">
+								<h5>
+									Sent via text: {{createdAt}}
+								</h5>
+								<p>
+									"{{content}}"
+								</p>
+							</div>
+							{{/if}}
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+				{{!-- <form method="post">
+					<fieldset class="form-group">
+						<textarea type="text" class="form-control" name="message" rows="4" cols="50" required>
+						</textarea>
+					</fieldset>
+					<div class="well date-input">
+						<input data-format="dd/MM/yyyy hh:mm:ss" type="text" name="date" placeholder = "YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS" style="width: 50%"/>
+					</div>
+					<div id ="container">
+						<button type="submit" class="btn btn-secondary" id = "sendBtn">Send Now</button>
+
+						<button type="button" class="btn btn-danger" id="later-btn" name = "later" value = "true" clicked = "false">Send Later</button>
+						<div>
+						</div>
+					</div>
+				</form> --}}
+			</div>
+		</div>
+	<div class = "col-md-2"></div>
+</div>
+
+<script type="text/javascript">
+$('.dropdown-toggle').dropdown();
+
+$(function() {
+	$('.date-input').hide();
+	console.log($('.date-input'))
+
+	$('#later-btn').click(function(evt){
+		$('.date-input').show();
+		if ($('#later-btn').attr("clicked") === "false"){
+			$('#later-btn').attr("clicked","true");
+			evt.preventDefault();
+		};
+	});
+});
+
+	
+</script>
+	</script>
